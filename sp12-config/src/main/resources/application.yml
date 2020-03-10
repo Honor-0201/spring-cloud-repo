@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: config-server
+   
+  profiles:
+    active: native
+    
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/config
+    
+    
+    
+  rabbitmq:
+    host: 192.168.160.5
+    port: 5672
+    username: admin
+    password: admin
+    
+#  cloud:
+#    config:
+#      server:
+#        git:
+#          uri: https://github.com/Honor-0201/sp-config.git
+#          search-paths: config
+
+
+    
+server:
+  port: 6001
+  
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka1:2001/eureka, http://eureka2:2002/eureka
+      
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
